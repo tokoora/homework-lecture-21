@@ -24,7 +24,7 @@ int main(){
     cin>>temp>>sym;
     if(sym=='f'){
         cout<<(temp-32)*(5/9);
-    } else if(sym=='t'){
+    } else if(sym=='c'){
         cout<<(temp*9/5)+32;
     } else{
         cout<<"Invalid Symbol";
@@ -42,7 +42,7 @@ int main(){
     //მანძილის პოვნა
     int x1, x2, y1, y2;
     cin>>x1>>y1>>x2>>y2;
-    cout<<sqrt(pow((x1-x2),2)+(y1-y2,2))<<endl;
+    cout<<sqrt(pow((x1-x2),2)+pow(y1-y2,2))<<endl;
 
     //კვადრატული განტოლება
     int a, b, c;
