@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <climits>
+#include <algorithm>
+#include <cstring>
 using namespace std;
 int main(){
     //1-ლი სავარჯიშო
@@ -290,18 +292,18 @@ int main(){
     cout<<"The sum of the series upto "<<seriesNumber<<" terms: "<<seriesSum<<endl;
 
     //23-ე სავარჯიშო
-    int termNines, sumNines, numberNines=9;
+    int termNines, sumNines=0, numberNines=9;
     cout<<"Input number of terms: ";
     cin>>termNines;
-    for(int i=1; i<=5; i++){
+    for(int i=1; i<=termNines; i++){
         cout<<numberNines<<" ";
         sumNines+=numberNines;
         numberNines=numberNines*10+9;
     }
-    cout<<"The sum of the sarise: "<<sumNines;
+    cout<<"The sum of the series: "<<sumNines;
 
     //24-ე სავარჯიშო
-    float xxNumber, seriesSum=1, seriesFact=1, seriesTerms;
+    float xxNumber, serieesSum=1, seriesFact=1, seriesTerms;
     float seriesSign=1;
     int j_24;
     cout<<"Input the value of x: ";
@@ -312,8 +314,343 @@ int main(){
         for(j_24=1; j_24<=i; j_24++){
             seriesFact*=j_24;
         }
-    seriesSum+=pow(xxNumber, i)/seriesFact;
+    serieesSum+=pow(xxNumber, i)/seriesFact;
     j_24=1;
     }
-    cout<<"The sum is: "<<seriesSum;
+    cout<<"The sum is: "<<serieesSum;
+
+    //25-ე სავარჯიშო
+    float number_25, sum_25, count_25;
+    int term_25, ans_25, power, sign_25=-1;
+    cout<<"Input the value of x: ";
+    cin>>number_25;
+    cout<<"Input the number of terms: ";
+    cin>>term_25;
+    cout<<"The Value of series:"<<endl;
+    sum_25=number_25;
+    for(int i=1; i<term_25; i++){
+        count_25=(2*i+1);
+        power=pow(number_25, count_25);
+        ans_25=sign_25*power;
+        sum_25+=ans_25;
+        cout<<ans_25<<endl;
+        sign_25=sign_25*(-1);
+    }
+    cout<<"The sum of the series upto "<<term_25<<" term is: "<<sum_25<<endl;
+
+    //26-ე სავარჯიშო
+    int termOnes, sumOnes=0, numberOnes=1;
+    cout<<"Input number of terms: ";
+    cin>>termOnes;
+    for(int i=1; i<=termOnes; i++){
+        cout<<numberOnes<<" ";
+        sumOnes+=numberOnes;
+        numberOnes=numberOnes*10+1;
+    }
+    cout<<"The sum of the series: "<<sumOnes;
+
+    //27-ე სავარჯიშო
+    int firstFib=0, secondFib=1, fibTerm, fibNumber;
+    cout<<"Input the number of terms to display: ";
+    cin>>fibTerm;
+    cout<<"Here is the fibonacci series upto "<<fibTerm<<" terms:"<<endl;
+    cout<<firstFib<<" "<<secondFib<<" ";
+    for(int i=1; i<=fibTerm; i++){
+        fibNumber=firstFib+secondFib;
+        cout<<fibNumber<<" ";
+        firstFib=secondFib;
+        secondFib=fibNumber;
+    }
+
+    //28-ე სავარჯიშო
+    int sumOfNines;
+    cout<<"Number between 100 and 200, divisible by 9:"<<endl;
+    for(int i=100; i<=200; i++){
+        if(i%9==0){
+            cout<<i<<" ";
+            sumOfNines+=i;
+        }
+    }
+    cout<<endl;
+    cout<<"The sum: "<<sumOfNines<<endl;
+
+    //29-ე სავარჯიშო
+    int hcf, lcm, minNum, firstNumber, secondNumber;
+    cout<<"Input 1st Number for LCM: ";
+    cin>>firstNumber;
+    cout<<"Input 2nd number for LCM: ";
+    cin>>secondNumber;
+    if(firstNumber>=secondNumber) minNum=secondNumber;
+    else minNum=firstNumber;
+    for(int i=1; i<=minNum; i++){
+        if(firstNumber%i==0 && secondNumber%i==0){
+            hcf=i;
+        }
+    }
+    lcm=firstNumber*secondNumber/hcf;
+    cout<<"The LCM of "<<firstNumber<<" and "<<secondNumber<<" is: "<<lcm<<endl;
+    
+    //30-ე სავარჯიშო
+    int reverseNumber, reverse, reverseSum=0;
+    cout<<"Input the Number: ";
+    cin>>reverseNumber;
+    while(reverseNumber>0){
+        reverse=reverseNumber%10;
+        reverseSum=reverseSum*10+reverse;
+        reverseNumber/=10;
+    }
+    cout<<"The number in reverse order is: "<<reverseSum<<endl;
+
+    //31-ე სავარჯიშო
+    int startNum, itemsNum, differenceNum, summNum=0;
+    cout<<"Input the starting number of the A.P. series: ";
+    cin>>startNum;
+    cout<<"Input the number of items or the A.P series: ";
+    cin>>itemsNum;
+    cout<<"Input the common difference of the A.P. series: ";
+    cin>>differenceNum;
+    for(int i=1; i<=itemsNum; i++){
+        summNum+=startNum;
+        startNum+=differenceNum;
+    }
+    cout<<"The sum of the A.P. series is: "<<summNum<<endl;
+
+    //32-ე სავარჯიშო
+    int startNumGp, itemsNumGp, ratioNum, sumNumGp=0;
+    cout<<"Input the starting number of the G.P. series: ";
+    cin>>startNumGp;
+    cout<<"Input the number of items for the G.P. series: ";
+    cin>>itemsNumGp;
+    cout<<"Input the common ratio of G.P. series: ";
+    cin>>ratioNum;
+    for(int i=1; i<=itemsNumGp; i++){
+        sumNumGp+=startNumGp;
+        startNumGp*=ratioNum;
+    }
+    cout<<"The Sum of the G.P. series is: "<<sumNumGp<<endl;
+
+    //33-ე სავარჯიშო, ეს ვერ მივხვდი როგორ მექნა 
+
+    //34-ე სავარჯიშო
+    string str;
+    cout<<"Input a string: ";
+    cin>>str;
+    cout<<"Length of the string is: "<<str.size()<<endl;
+
+
+    //35-ე სავარჯიშო
+    int rowNumber;
+    cout<<"Input the number of rows: ";
+    cin>>rowNumber;
+    for(int i=1; i<=rowNumber; i++){
+        for(int j=1; j<=i; j++){
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+
+    //36-ე სავარჯიშო
+    int rowNum;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum;
+    for(int i=1; i<=rowNum; i++){
+        for(int j=1; j<=i; j++){
+            cout<<j;
+        }
+        cout<<endl;
+    }
+
+    //37-ე სავარჯიშო
+    int rowNum_37;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_37;
+    for(int i=1; i<=rowNum_37; i++){
+        for(int j=1; j<=i; j++){
+            cout<<i;
+        }
+        cout<<endl;
+    }
+
+    //38-ე სავარჯიშო
+    int rowNum_38, count_38=1;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_38;
+    for(int i=1; i<=rowNum_38; i++){
+        for(int j=1; j<=i; j++){
+            cout<<count_38++<<" ";
+        }
+        cout<<endl;
+    }
+
+    //39-ე სავარჯიშო
+    int rowNum_39, count_39=1;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_39;
+    int spaceRow=rowNum_39*2-1;
+    for(int i=1; i<=rowNum_39; i++){
+        for(int q=spaceRow; q>=1; q--){
+            cout<<" ";
+        }
+        for(int j=1; j<=i; j++){
+            cout<<count_39++<<" ";
+        }
+        cout<<endl;
+        spaceRow--;
+    }
+
+    //მე-40 სავარჯიშო
+    int rowNum_40;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_40;
+        int spaceRow_40=rowNum_40*2-1;
+    for(int i=1; i<=rowNum_40; i++){
+        for(int q=spaceRow_40; q>=1; q--){
+            cout<<" ";
+        }
+        for(int j=1; j<=i; j++){
+            cout<<"*"<<" ";
+        }
+        cout<<endl;
+        spaceRow_40--;
+    }
+
+    //41-ე სავარჯიშო 
+    int rowNum_41;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_41;
+    int spaceRow_41=rowNum_41*2-1;
+    for(int i=1; i<=rowNum_41; i++){
+        for(int q=spaceRow_41; q>=1; q--){
+            cout<<" ";
+        }
+        for(int j=1; j<=i; j++){
+            cout<<i<<" ";
+        }
+        cout<<endl;
+        spaceRow_41--;
+    }
+
+    //42-ე სავარჯიშო
+    int rowNum_42;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_42;
+    for(int i=1; i<=rowNum_42; i++){
+        for(int q=1; q<=rowNum_42*2-i; q++){
+            cout<<" ";
+        }
+        for(int j=1; j<=2*i-1; j++){
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+
+    //43-ე სავარჯიშო
+    int rowNum_43, x_43, y_43;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_43;
+    for(int i=1; i<=rowNum_43; i++){
+        if(i%2==0){x_43=0; y_43=1;}
+        else{x_43=1; y_43=0;}
+        for(int j=1; j<=1; j++){
+            if(j%2==0) cout<<y_43;
+            else cout<<x_43;
+        }
+        cout<<endl;
+    }
+
+    //44-ე სავარჯიშო
+    int rowNum_44;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_44;
+    for(int i=1; i<=rowNum_44; i++){
+        for(int q=1; q<=rowNum_44*2-i; q++){
+            cout<<" ";
+        }
+        for(int j=1; j<=2*i-1; j++){
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+    for(int i=rowNum_44-1; i>=1; i--){
+        for(int q=1; q<=rowNum_44*2-i; q++){
+            cout<<" ";
+        }
+        for(int j=1; j<=2*i-1; j++){
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+
+    //45-ე სავარჯიშო
+    int rowNum_45, value_45=1;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_45;
+    for(int i=0; i<rowNum_45; i++){
+        for(int q=1; q<=rowNum_45*2-i; q++){
+            cout<<" ";
+        }
+        for(int j=0; j<i; j++){
+            if(j==0 || i==0) value_45=1;
+            else value_45=value_45*(i-j)/j;
+            cout<<value_45<<" ";
+        }
+        cout<<endl;
+    }
+
+
+    //46-ე სავარჯიშო
+    int rowNum_46, value_46=1;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_46;
+    for(int i=0; i<rowNum_46; i++){
+        for(int q=1; q<=rowNum_46; q++){
+            cout<<" ";
+        }
+        for(int j=0; j<i; j++){
+            if(j==0 || i==0) value_46=1;
+            else value_46=value_46*(i-j)/j;
+            cout<<value_46<<" ";
+        }
+        cout<<endl;
+    }
+
+    //47-ე სავარჯიშო
+    int rowNum_47;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_47;
+    for(int i=1; i<=rowNum_47; i++){
+        for(int q=1; q<=rowNum_47*2-i; q++){
+            cout<<" ";
+        }
+        for(int j=1; j<=i; i++){
+            cout<<j;
+        }
+        for(int j=i-1; j>=1; j--){
+            cout<<j;
+        }
+        cout<<endl;
+    }
+
+    //48-ე სავარჯიშო
+    int rowNum_48;
+    char ch='A';
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_48;
+    for(int i=1; i<=rowNum_48; i++){
+        for(int q=1; q<=rowNum_48*2-i; q++){
+            cout<<" ";
+        }
+        for(int j=1; j<=i; j++){
+            cout<<ch++;
+        }
+        ch=ch-2;
+        for(int j=i-1; j>=1; j--){
+            cout<<ch--;
+        }
+        cout<<endl;
+        ch='A';
+
+    }
+
+
 }
