@@ -652,5 +652,59 @@ int main(){
 
     }
 
+    //49-ე სავარჯიშო
 
+
+    //50-ე სავარჯიშო
+    int rowNum_50;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_50;
+    for(int i=1; i<=rowNum_50; i++){
+        cout<<i;
+        for(int j=i+1; j<=rowNum_50; j++){
+            cout<<j;
+        }
+        cout<<endl;
+    }
+
+    //51-ე სავარჯიშო
+    int rowNum_51;
+    cout<<"Input the number of rows: ";
+    for(int i=rowNum_51; i>=1; i--){
+        for(int q=1; q<=rowNum_51*2-i; q++){
+            cout<<" ";
+        }
+        for(int j=1; j<=i; j++){
+            cout<<j;
+        }
+        cout<<endl;
+    }
+
+    //52-ე სავარჯიშო
+    int rowNum_52;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_52;
+    for(int i=1; i<=rowNum_52; i++){
+        for(int j=rowNum_52-i+1; j>=1; j--){
+            cout<<j<<" ";
+        }
+        cout<<endl;
+    }   
+
+
+    //53-ე სავარჯიშო
+    int rowNum_53;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_53;
+    for(int i=1; i<=rowNum_53; i++){
+        for(int q=1; q<=rowNum_53*2-i; q++){
+            cout<<" ";
+        }
+        int xiCounter=i;
+        for(int j=1; j<=i; j++){
+            cout<<xiCounter;
+            xiCounter--;
+        }
+        cout<<endl;
+    }
 }
