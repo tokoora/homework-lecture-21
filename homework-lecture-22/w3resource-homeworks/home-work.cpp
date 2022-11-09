@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <climits>
 using namespace std;
 int main(){
     //1-ლი სავარჯიშო
@@ -161,5 +162,8 @@ int main(){
         numberCounter++;
     }
     cout<<"The Sum of the Series = "<<sum_13<<endl<<endl<<endl;
+
+  
+    
 
 }
