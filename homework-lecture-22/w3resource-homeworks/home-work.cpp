@@ -818,14 +818,14 @@ int main(){
     }
 
     //მე-60 სავარჯიშო
-    int number_60, reverseNumber=0;
+    int number_60, reverseNumbers=0;
     cout<<"Input any number: ";
     cin>>number_60;
     while(number_60!=0){
-        reverseNumber=reverseNumber*10+number_60%10;
+        reverseNumbers=reverseNumbers*10+number_60%10;
         number_60/=10; //ვენაცვალე გუგლს
     }
-    for(int i=reverseNumber; i>0; i/=10){
+    for(int i=reverseNumbers; i>0; i/=10){
         switch(i%10){
             case 0:
             cout<<"Zero ";
