@@ -3,6 +3,7 @@
 #include <climits>
 #include <algorithm>
 #include <cstring>
+#define binarySize 8
 using namespace std;
 int main(){
     //1-ლი სავარჯიშო
@@ -749,39 +750,307 @@ int main(){
         }
     }
 
-    //55-ე სავარჯიშო
-    int number_55, firstDigit, lastDigit;
-    cout<<"Input any number: ";
-    cin>>number_55;
-    lastDigit=number_55%10;
-    while(number_55>=10){
-        number_55/=10;
+    //55-ე სავარჯიშო 
+    int rowNum_55;
+    cout<<"Input the number of rows: ";
+    cin>>rowNum_55;
+    for(int i=rowNum_55; i>=1; i--){
+        for(int q=1; q<=rowNum_55*2-i; q++){
+            cout<<" ";
+        }
+        for(int j=1; j<=i; j++){
+            cout<<j;
+        }
+        for(int j=i-1; j>=1; j--){
+            cout<<j;
+        }
+        cout<<endl;
     }
-    firstDigit=number_55%10;
-    cout<<"The First Digit is: "<<firstDigit<<endl;
-    cout<<"The Last Digit is: "<<lastDigit<<endl;
 
+    
     //56-ე სავარჯიშო
-    int number_56, firstDigits, lastDigits;
+    int number_56, firstDigit, lastDigit;
     cout<<"Input any number: ";
     cin>>number_56;
-    lastDigits=number_56%10;
+    lastDigit=number_56%10;
     while(number_56>=10){
         number_56/=10;
     }
-    firstDigits=number_56%10;
+    firstDigit=number_56%10;
+    cout<<"The First Digit is: "<<firstDigit<<endl;
+    cout<<"The Last Digit is: "<<lastDigit<<endl;
+
+    //57-ე სავარჯიშო
+    int number_57, firstDigits, lastDigits;
+    cout<<"Input any number: ";
+    cin>>number_57;
+    lastDigits=number_57%10;
+    while(number_57>=10){
+        number_57/=10;
+    }
+    firstDigits=number_57%10;
     cout<<"The First Digit is: "<<firstDigits<<endl;
     cout<<"The Last Digit is: "<<lastDigits<<endl;
     cout<<"The sum of first and last digit is: "<<firstDigits+lastDigits<<endl;
 
-    //57-ე სავარჯიშო
-    int number_57;
+    //58-ე სავარჯიშო
+    int number_58;
     cout<<"Input any number: ";
-    cin>>number_57;
+    cin>>number_58;
     int product=1;
-    while(number_57>0){
-        product*=number_57%10;
-        number_57/=10;
+    while(number_58>0){
+        product*=number_58%10;
+        number_58/=10;
     }
     cout<<"The product of digits is: "<<product;
+
+    //59-ე სავარჯიშო
+    int number_59, counter_59=0, nashti;
+    cout<<"Input any number: ";
+    cin>>number_59;
+    for(int i=0; i<=9; i++){
+        cout<<"The frequency of "<<i<<" = ";
+        for(int j=number_59; j>0; j/=10){
+            nashti=j%10;
+            if(nashti==i) counter_59++;
+        }
+        cout<<counter_59<<endl;
+    }
+
+    //მე-60 სავარჯიშო
+    int number_60, reverseNumber=0;
+    cout<<"Input any number: ";
+    cin>>number_60;
+    while(number_60!=0){
+        reverseNumber=reverseNumber*10+number_60%10;
+        number_60/=10; //ვენაცვალე გუგლს
+    }
+    for(int i=reverseNumber; i>0; i/=10){
+        switch(i%10){
+            case 0:
+            cout<<"Zero ";
+            break;
+            case 1:
+            cout<<"One ";
+            break;
+            case 2:
+            cout<<"Two ";
+            break;
+            case 3:
+            cout<<"Three ";
+            break;
+            case 4:
+            cout<<"Four ";
+            break;
+            case 5:
+            cout<<"Five ";
+            break;
+            case 6:
+            cout<<"Six ";
+            break;
+            case 7:
+            cout<<"Seven ";
+            break;
+            case 8:
+            cout<<"Eight ";
+            case 9:
+            cout<<"Nine ";
+            break;
+            default:
+            break;
+        }
+        cout<<endl;
+    }
+
+
+    //61-ე სავარჯიშო - ამას ვერ გავუგე ვერაფერი
+
+    //62-ე სავარჯიშო
+    int baseNum, exponentNum;
+    cout<<"Input the base: ";
+    cin>>baseNum;
+    cout<<"Input the exponent: ";
+    cin>>exponentNum;
+    int powerNumber=1;
+    for(int i=1; i<=exponentNum; i++){
+        powerNumber*=baseNum;
+    }
+    cout<<baseNum<<"^"<<exponentNum<<"="<<powerNumber;
+
+    //63-ე სავარჯიშო
+    int number_63;
+    cout<<"Input the number: ";
+    cin>>number_63;
+    cout<<"The factors are: ";
+    for(int i=1; i<=number_63; i++){
+        if(number_63%i==0) {
+            cout<<i<<" ";
+        }
+    }
+
+
+    //64-ე სავარჯიშო
+    int number_64, fail=0;
+    char binary[binarySize+1], comp[binarySize+1];
+    cout<<"Input a 8 bit binary value: ";
+    cin>>binary;
+    for(int i=0; i<binarySize; i++){
+        if(binary[i]=='1'){
+            comp[i]='0';
+        }
+        else if(binary[i]=='0'){
+            comp[i]='1';
+        }
+        else {
+            cout<<"Error! ";
+            fail=1;
+            break;
+        }
+    }
+    if(fail==0){
+        cout<<"The original binary number = "<<binary<<endl;
+        cout<<"Ones complement the number = "<<comp<<endl;
+    }
+
+    //65-ე სავარჯიშო
+    int failBin=0;
+    char binaryNum[binarySize+1], compNum[binarySize+1], twos[binarySize+1];
+    cout<<"Input a 8 bit binary value: ";
+    cin>>binary;
+    for(int j=0; j<binarySize; j++){
+        if(binary[j]=='1'){compNum[j]='0';}
+        else if(binary[j]=='0'){compNum[j]='1';}
+        else {cout<<"Error"<<endl;
+        fail=1;}
+    }
+        for(int i=9; i<binarySize; i++){
+            if(binary[i]=='1' && binary[i+1]=='1'){
+                twos[i]='0';
+                twos[i+1]='0';
+            }
+            if(binary[i]=='0' && binary[i+1]=='0'){
+                twos[i]='1';
+                twos[i+1]='1';
+            }
+            else{
+                twos[i]=binary[i];
+            }
+        }
+    if(fail==0){
+        cout<<"The original binary number = "<<binary<<endl;
+        cout<<"Ones complement the number = "<<compNum<<endl;
+        cout<<"Twos compelement the number = "<<twos<<endl;
+    }
+
+    //66-ე სავარჯიშო
+    int num_66;
+    string black="black", white="white", renaming;
+    cout<<"Input the number of rows: ";
+    cin>>num_66;
+    for(int i=1; i<=num_66; i++){
+        for(int j=1; j<=num_66; j++){
+            if(j%2==0){
+                cout<<white;
+                if(j<num_66){
+                    cout<<"-";
+                }
+            }
+            if(j%2>0){
+                cout<<black;
+                if(j<num_66){
+                    cout<<"-";
+                }
+            }
+        }
+        renaming=black;
+        black=white;
+        white=renaming;
+        cout<<endl;
+    }
+
+    //67-69 ჩათვლით ვერ გავუგე 
+
+    //70-ე სავარჯიშო
+    int num70;
+    int array[101];
+    cout<<"Input a decimal number: ";
+    cin>>num70;
+    for(int i=0; num70>0; i++){
+        array[i]=num70%2;
+        num70/=2;
+    }
+    cout<<"The binary number is: "<<array<<endl;
+
+    //71-ე სავარჯიშო
+    int decimalNum, rem, counter_71=0;
+    char hexaDecimalNum[100];
+    cout<<"Input a decimal number: ";
+    cin>>decimalNum;
+    while(decimalNum!=0){
+        rem=decimalNum%16;
+        if(rem<10) rem+=48;
+        else rem+=55;
+        hexaDecimalNum[counter_71]=rem;
+        counter_71++;
+        decimalNum/=16;
+    }
+    cout<<"The hexadecimal number is: ";
+    for(counter_71=counter_71-1; counter_71>=0; counter_71--){
+        cout<<hexaDecimalNum[counter_71];
+    }
+    cout<<endl;
+
+
+    //72-ე სავარჯიშო
+    int decimalNumber, octalNum[101], counter_72=0;
+    cout<<"Input a decimal number: ";
+    cin>>decimalNumber;
+    while(decimalNumber!=0){
+        octalNum[counter_72]=decimalNumber%8;
+        decimalNumber/=8;
+        counter_72++;
+    }
+    cout<<"The octal number is: ";
+    for(counter_72=counter_72-1; counter_72>=0; counter_72--){
+        cout<<octalNum[counter_72];
+    }
+    cout<<endl;
+
+    //73-ე სავარჯიშო
+    int num73, decimal73, rem73, counter73=0;
+    cout<<"Input a binary number: ";
+    cin>>num73;
+    while(num73!=0){
+        rem73=num73%10;
+        num73/=10;
+        decimal73+=rem73*pow(2, counter73);
+        counter73++;
+    }
+    cout<<"The decimal number: "<<decimal73<<endl;
+
+    //74-ე სავარჯიშო
+    int num74, decimal74, rem74, counter74=0, anotherCounter=0, anotherrem;
+    char hexaDecNum[101];
+    cout<<"Input a binary number: ";
+    cin>>num74;
+    while(num74!=0){
+        rem74=num74%10;
+        num74/=10;
+        decimal74+=rem74*pow(2, counter74);
+        counter74++;
+    }
+    while(decimal74!=0){
+        anotherrem=decimal74%16;
+        if(anotherrem<10) anotherrem+=48;
+        else anotherrem+=55;
+        hexaDecNum[anotherCounter]=anotherrem;
+        anotherCounter++;
+        decimal74/=16;
+    }
+    cout<<"The hexadecimal number is: ";
+    for(anotherCounter=anotherCounter-1; anotherCounter>=0; anotherCounter--){
+        cout<<hexaDecNum[anotherCounter];
+    }
+    cout<<endl;
+
 }
