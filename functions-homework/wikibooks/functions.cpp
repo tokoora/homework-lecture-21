@@ -30,6 +30,7 @@ void calcFunction(float numberOne, float numberTwo, float numberResult){
     if(sign=='*') numberResult=numberOne*numberTwo;
     if(sign=='/') numberResult=numberOne/numberTwo;
     if(sign=='^') numberResult=pow(numberOne, numberTwo);
+    
     cout<<"Result: "<<numberResult<<endl;
 }
 
