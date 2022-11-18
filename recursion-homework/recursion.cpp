@@ -8,7 +8,10 @@ int fib(int num);
 void array(int ar[], int count, int size);
 int numberOfDigits(int num);
 int sumOfDigits(int num);
+int gcd(int num1, int num2);
+int arrayMaxNumber(int ar[]);
 
+int sizeOfArr;
 
 int main(){
     //1-ლი სავარჯიშო
@@ -58,6 +61,23 @@ int main(){
     cin>>n;
     cout<<"The sum of the digits: "<<sumOfDigits(n);
 
+    //მე-7 სავარჯიშო
+    int num1, num2;
+    cout<<"Enter the numbers: ";
+    cin>>num1>>num2;
+    cout<<"The Greatest Common Divisor is: "<<gcd(num1, num2);
+
+    //მე-8 სავარჯიშო
+    int arRay[maxn];
+    cout<<"Enter the size of array: ";
+    cin>>sizeOfArr;
+    cout<<"Enter the elements of array: ";
+    for(int i=0; i<sizeOfArr; i++){
+        cout<<"Element - "<<i<<" : ";
+        cin>>arRay[i];
+    }
+    cout<<"The largest element of array: "<<arrayMaxNumber(arRay);
+
 }
 
 void printNaturalNumbers(int num){
@@ -105,4 +125,22 @@ int sumOfDigits(int num){
         sumOfDigits(num/10);
     }
     return sum;
+}
+
+int gcd(int num1, int num2){
+    if(num1==0 || num2==0) return 0;
+    else if(num1==num2) return num1;
+    else if(num1>num2) return gcd(num1-num2, num2);
+    else return gcd(num1, num2-num1);
+}
+
+int arrayMaxNumber(int ar[]){
+    static int count=0;
+    static int number=-125125;
+    if(count<sizeOfArr){
+        if(number<ar[count]) number=ar[count];
+        count++;
+        arrayMaxNumber(ar);
+    }
+    return number;
 }
