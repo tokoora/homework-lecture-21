@@ -1,15 +1,21 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 const int maxn=101;
 
 void printNaturalNumbers(int num=1);
 int sumOfNaturalNumbers(int num);
 int fib(int num);
-void array(int ar[], int count, int size);
+void arrayElements(int ar[], int count, int size);
 int numberOfDigits(int num);
 int sumOfDigits(int num);
 int gcd(int num1, int num2);
 int arrayMaxNumber(int ar[]);
+void reverseString(const string& st);
+int numberFactorial(int num);
+int binaryNumber(int n);
+int primeNumber(int n, int count);
+int lcm(int n, int n1, int l);
 
 int sizeOfArr;
 
@@ -45,7 +51,7 @@ int main(){
         cin>>ar[i];
     }
     cout<<"The elements of array: ";
-    array(ar, 0, size);
+    arrayElements(ar, 0, size);
     cout<<endl<<endl;
 
     //მე-5 სავარჯიშო
@@ -60,12 +66,14 @@ int main(){
     cout<<"Enter the number: ";
     cin>>n;
     cout<<"The sum of the digits: "<<sumOfDigits(n);
+    cout<<endl<<endl;
 
     //მე-7 სავარჯიშო
     int num1, num2;
     cout<<"Enter the numbers: ";
     cin>>num1>>num2;
     cout<<"The Greatest Common Divisor is: "<<gcd(num1, num2);
+    cout<<endl<<endl;
 
     //მე-8 სავარჯიშო
     int arRay[maxn];
@@ -77,6 +85,47 @@ int main(){
         cin>>arRay[i];
     }
     cout<<"The largest element of array: "<<arrayMaxNumber(arRay);
+    cout<<endl<<endl;
+
+    //მე-9 სავარჯიშო
+    string st;
+    cout<<"Enter the string: ";
+    cin>>st;
+    cout<<"String in reverse order: ";
+    reverseString(st);
+    cout<<endl<<endl;
+
+    //მე-10 სავარჯიშო
+    int factNumber;
+    cout<<"Enter the number: ";
+    cin>>factNumber;
+    cout<<"The factorial = "<<numberFactorial(factNumber);
+    cout<<endl<<endl;
+
+    //მე-11 სავარჯიშო
+    int decNumber;
+    cout<<"Enter the decimal number: ";
+    cin>>decNumber;
+    cout<<"The binary value of number "<<decNumber<<" = "<<binaryNumber(decNumber);
+    cout<<endl<<endl;
+
+    //მე-12 სავარჯიშო
+    int primeNum, primeNumberChecker;
+    cout<<"Enter the number: ";
+    cin>>primeNum;
+    primeNumberChecker=primeNumber(primeNum, primeNum/2);
+    if(primeNumberChecker==1) cout<<"The number "<<primeNum<<" is prime";
+    else cout<<"The number "<<primeNum<<" is not prime";
+    cout<<endl<<endl;
+
+    //მე-13 სავარჯიშო
+    int lcmFirstNumber, lcmSecondNumber, lcmCounter;
+    cout<<"Enter the numbers: ";
+    cin>>lcmFirstNumber>>lcmSecondNumber;
+    lcmCounter=max(lcmFirstNumber, lcmSecondNumber);
+    cout<<"The least common multiple is: "<<lcm(lcmFirstNumber, lcmSecondNumber, lcmCounter);
+    cout<<endl<<endl;
+
 
 }
 
@@ -103,10 +152,10 @@ int fib(int num){
     }
 }
 
-void array(int ar[], int count, int size){
+void arrayElements(int ar[], int count, int size){
     if(count>size-1) return;
     cout<<ar[count]<<" ";
-    array(ar, count+1, size);
+    arrayElements(ar, count+1, size);
 }
 
 int numberOfDigits(int num){
@@ -143,4 +192,36 @@ int arrayMaxNumber(int ar[]){
         arrayMaxNumber(ar);
     }
     return number;
+}
+
+void reverseString(const string& st){
+    int count=st.size();
+    if(count==1){
+        cout<<st<<endl;
+    } else{
+        cout<<st[count-1];
+        reverseString(st.substr(0, count-1));
+    }
+    
+}
+
+int numberFactorial(int num){
+    if(num==1) return 1;
+    else return num*numberFactorial(num-1);
+}
+
+int binaryNumber(int n){
+    if(n==0) return 0;
+    else return (n%2+10*binaryNumber(n/2));
+}
+
+int primeNumber(int n, int count){
+    if(count==1) return 1;
+    else if(n%count==0) return 0;
+    else primeNumber(n, count-1);
+}
+
+int lcm(int n, int n1, int l){
+    if(l%n==0 && l%n1==0) return l;
+    else lcm(n, n1, l+1);
 }
