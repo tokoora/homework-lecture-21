@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cmath>
+#include <algorithm>
+#include <cstring>
 using namespace std;
 const int maxn=101;
 
@@ -16,6 +18,13 @@ int numberFactorial(int num);
 int binaryNumber(int n);
 int primeNumber(int n, int count);
 int lcm(int n, int n1, int l);
+void odd(int limit, int n=1);
+void even(int limit, int n=2);
+int power(int num, int pw);
+void hailstone(int n);
+void stringCopier(string st);
+char capitalCheck(string st);
+
 
 int sizeOfArr;
 
@@ -127,6 +136,57 @@ int main(){
     cout<<endl<<endl;
 
 
+    //მე-14 სავარჯიშო
+    int oddOrEven;
+    cout<<"Enter the number: ";
+    cin>>oddOrEven;
+    cout<<"All the odd numbers: ";
+    odd(oddOrEven);
+    cout<<endl;
+    cout<<"All the even numbers: ";
+    even(oddOrEven);
+    cout<<endl<<endl;
+
+    //მე-15 სავარჯიშო, ვერ გავუგე ვერაფერი
+
+    //მე-16 სავარჯიშო
+    string palindromeString, palindromeString2;
+    cout<<"Enter the string: ";
+    cin>>palindromeString;
+    palindromeString2=palindromeString;
+    reverse(palindromeString2.begin(), palindromeString2.end());
+    if(palindromeString==palindromeString2) cout<<"The word is palindrome";
+    else cout<<"The word is not palindrome";
+    cout<<endl<<endl;
+
+    //მე-17 სავარჯიშო
+    int powNumber, calcPower;
+    cout<<"Input the base value: ";
+    cin>>powNumber;
+    cout<<"Input the power value: ";
+    cin>>calcPower;
+    cout<<"The value of "<<powNumber<<" to the power of "<<calcPower<<" is: "<<power(powNumber, calcPower);
+
+    //მე-18 სავარჯიშო
+    int hailstoneNumber;
+    cout<<"The hailstone sequence starting at "<<hailstoneNumber<<" is: "<<endl;
+    hailstone(hailstoneNumber);
+
+    //მე-19 სავარჯიშო
+    string strCopy;
+    cout<<"Input the string to copy: ";
+    cin>>strCopy;
+    stringCopier(strCopy);
+
+    //მე-20 სავარჯიშო
+    string capitalString;
+    cout<<"Enter the string: ";
+    cin>>capitalString;
+    cout<<"The first uppercase letter in the string is: "<<capitalCheck(capitalString);
+    cout<<endl<<endl;
+
+
+
 }
 
 void printNaturalNumbers(int num){
@@ -224,4 +284,56 @@ int primeNumber(int n, int count){
 int lcm(int n, int n1, int l){
     if(l%n==0 && l%n1==0) return l;
     else lcm(n, n1, l+1);
+}
+
+void odd(int limit, int n=1){
+    if(n<=limit){
+        cout<<n<<" ";
+        odd(limit, n+2);
+    }
+}
+
+void even(int limit, int n=2){
+    if(n<=limit){
+        cout<<n<<" ";
+        even(limit, n+2);
+    }
+}
+
+int power(int num, int pw){
+    static int k=1;
+    if(pw==0) return k;
+    k=num*power(num, pw-1);
+}
+
+void hailstone(int n){
+    cout<<n<<" ";
+    if(n!=1){
+        if(n%2==0) hailstone(n/2);
+        else hailstone(n*3+1);
+    }
+}
+
+void stringCopier(string st){
+    string st1;
+    st1=st;
+  
+    cout<<"The string successfully copied: "<<endl;
+    cout<<"The first string is: "<<st<<endl;
+    cout<<"The copied string is: "<<st1<<endl;
+}
+
+char capitalCheck(string st){
+    static int count=0;
+    if(count<st.length()){
+        if(isupper(st[count])){
+            return st[count];
+        }
+        else{
+            count++;
+            return capitalCheck(st);
+        }
+    } else{
+        return 0;
+    }
 }
