@@ -38,5 +38,23 @@ int main(){
     cout<<endl<<endl;
 
     //მე-7 სავარჯიშო
+    int array[101], arraySize;
+    cout<<"Enter the number of elements: ";
+    cin>>arraySize;
+    cout<<"Input "<<arraySize<<" number of elements: "<<endl;
+    for(int i=0; i<arraySize; i++){
+        cout<<"element - "<<i<<" : ";
+        cin>>array[i];
+        cout<<endl;
+    }
+    cout<<"The elements you entered are: "<<endl;
+    for(int i=0; i<arraySize; i++){
+        cout<<"element - "<<i<<" : "<<*(array+i)<<endl;
+    }
 
+    cout<<endl<<endl;
+
+
+    //მე-8 სავარჯიშო
+    
 }
