@@ -43,53 +43,53 @@ class Basketball{
 
 
     
-    void setPlayerStats(float ppg, float apg, float rpg, float mpg){
-        pointsPerGame=ppg;
-        assistsPerGame=apg;
-        reboundsPerGame=rpg;
-        minutesPerGame=mpg;
-    }
+        void setPlayerStats(float ppg, float apg, float rpg, float mpg){
+            pointsPerGame=ppg;
+            assistsPerGame=apg;
+            reboundsPerGame=rpg;
+            minutesPerGame=mpg;
+        }
 
-    void setPlayer(int age, int exp){
-        playerAge=age;
-        playerExperience=exp;
-    }
+        void setPlayer(int age, int exp){
+            playerAge=age;
+            playerExperience=exp;
+        }
 
-    void setTeam(string team){
-        playerTeam=team;
-    }
+        void setTeam(string team){
+            playerTeam=team;
+        }
 
-    float getPlayersPoints(){
-        return pointsPerGame;
-    }
+        float getPlayersPoints(){
+            return pointsPerGame;
+        }
 
-    float getPlayersRebounds(){
-        return reboundsPerGame;
-    }
+        float getPlayersRebounds(){
+            return reboundsPerGame;
+        }
 
-    float getPlayersAssists(){
-        return assistsPerGame;
-    }
+        float getPlayersAssists(){
+            return assistsPerGame;
+        }
 
-    float getPlayersMinutes(){
-        return minutesPerGame;
-    }
+        float getPlayersMinutes(){
+            return minutesPerGame;
+        }
 
-    int getPlayersAge(){
-        return playerAge;
-    }
+        int getPlayersAge(){
+            return playerAge;
+        }
 
-    int getPlayersExperience(){
-        return playerExperience;
-    }
+        int getPlayersExperience(){
+            return playerExperience;
+        }
 
-    int getPlayerCount(){
-        return playerCount;
-    }
+        int getPlayerCount(){
+            return playerCount;
+        }
 
-    string getPlayersTeam(){
-        return playerTeam;
-    }
+        string getPlayersTeam(){
+            return playerTeam;
+        }
 
         
 };
